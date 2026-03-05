@@ -21,7 +21,6 @@ npm-debug.log*
 Dockerfile
 docker-compose*.yml
 .dockerignore
-nginx.conf
 
 # Docs
 *.md
