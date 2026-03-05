@@ -6,7 +6,8 @@ import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // Ignore generated shadcn/ui components — they are not hand-written code
+  globalIgnores(['dist', 'src/components/ui/**']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
