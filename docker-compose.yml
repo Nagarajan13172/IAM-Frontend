@@ -1,0 +1,27 @@
+version: "3.9"
+
+networks:
+  iam_network:
+    driver: bridge
+
+services:
+  # ───────────────────────────────────────────────────────────────────────────
+  # IAM Frontend — React / Vite app served via Nginx
+  # ───────────────────────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    container_name: iam_frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-3000}:80"
+    networks:
+      - iam_network
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

@@ -1,0 +1,34 @@
+# Version control
+.git
+.gitignore
+
+# Dependencies
+node_modules
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build output (built inside Docker)
+dist
+
+# Dev config files
+*.log
+npm-debug.log*
+
+# Docker files
+Dockerfile
+docker-compose*.yml
+.dockerignore
+nginx.conf
+
+# Docs
+*.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript cache
+*.tsbuildinfo
